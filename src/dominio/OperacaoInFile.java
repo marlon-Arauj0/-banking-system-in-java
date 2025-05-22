@@ -12,7 +12,7 @@ public class OperacaoInFile {
     private Double saldo;
     private Double valor;
     private Integer numeroContaDestino;
-    private LocalDate dataNascimento;
+    private String dataNascimento;
     private LocalDateTime dataOperacao;
 
     public String getCodigoOperacao() {
@@ -71,11 +71,11 @@ public class OperacaoInFile {
         this.numeroContaDestino = numeroContaDestino;
     }
 
-    public LocalDate getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(LocalDate dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
