@@ -1,6 +1,5 @@
 package dominio;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class OperacaoInFile {
@@ -9,12 +8,22 @@ public class OperacaoInFile {
     private String nomeCliente;
     private String documento;
     private Integer numeroConta;
-    private Double saldo;
-    private Double valor;
+    private double saldo;
+    private double valor;
     private Integer numeroContaDestino;
     private String dataNascimento;
     private LocalDateTime dataOperacao;
 
+    public static OperacaoInFile createOperacaoSaque(Integer numeroConta, double valor){
+        var operacaoLinha = new OperacaoInFile();
+
+        operacaoLinha.numeroConta = numeroConta;
+        operacaoLinha.valor = valor;
+        operacaoLinha.dataOperacao = LocalDateTime.now();
+        operacaoLinha.codigoOperacao = Operacao.SAQUE.name();
+
+        return  operacaoLinha;
+    }
     public String getCodigoOperacao() {
         return codigoOperacao;
     }
@@ -47,19 +56,19 @@ public class OperacaoInFile {
         this.numeroConta = numeroConta;
     }
 
-    public Double getSaldo() {
+    public double getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(Double saldo) {
+    public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
 
-    public Double getValor() {
+    public double getValor() {
         return valor;
     }
 
-    public void setValor(Double valor) {
+    public void setValor(double valor) {
         this.valor = valor;
     }
 
