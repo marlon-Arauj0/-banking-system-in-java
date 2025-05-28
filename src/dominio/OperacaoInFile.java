@@ -22,7 +22,28 @@ public class OperacaoInFile {
         operacaoLinha.dataOperacao = LocalDateTime.now();
         operacaoLinha.codigoOperacao = Operacao.SAQUE.name();
 
-        return  operacaoLinha;
+        return operacaoLinha;
+    }
+    public static OperacaoInFile createOperacaoDeposito(Integer numeroConta, double valor){
+        var operacaoLinha = new OperacaoInFile();
+
+        operacaoLinha.numeroConta = numeroConta;
+        operacaoLinha.valor = valor;
+        operacaoLinha.dataOperacao = LocalDateTime.now();
+        operacaoLinha.codigoOperacao = Operacao.DEPOSITO.name();
+
+        return operacaoLinha;
+    }
+    public static OperacaoInFile createOperacaoTransferencia(Integer contaOrigem, Integer numeroContaDestino, double valor){
+        var operacaoLinha = new OperacaoInFile();
+
+        operacaoLinha.numeroConta = contaOrigem;
+        operacaoLinha.valor = valor;
+        operacaoLinha.numeroContaDestino = numeroContaDestino;
+        operacaoLinha.dataOperacao = LocalDateTime.now();
+        operacaoLinha.codigoOperacao = Operacao.TRANSFERENCIA.name();
+
+        return operacaoLinha;
     }
     public String getCodigoOperacao() {
         return codigoOperacao;

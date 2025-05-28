@@ -2,13 +2,12 @@ package utils;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 import static java.time.format.DateTimeFormatter.ofPattern;
 
 public class DataUtil {
 
-    public static final String FORMATO_DTH_PADRAO = "dd/MM/yy hh:mm:ss";
+    public static final String FORMATO_DTH_PADRAO = "dd/MM/yy HH:mm:ss";
     public static final String FORMATO_DT_PADRAO = "dd/MM/yy ";
     public static String getDataFormatada(LocalDate data){
         return data.format(ofPattern(FORMATO_DT_PADRAO));
@@ -17,4 +16,11 @@ public class DataUtil {
         return data.format(ofPattern(FORMATO_DTH_PADRAO));
     }
 
+    public static LocalDateTime dataStringToLocalDateTime(String data){
+        return LocalDateTime.parse(data.trim(), ofPattern(FORMATO_DTH_PADRAO));
+    }
+
+    public static LocalDate dataStringToLocalDate(String data){
+        return LocalDate.parse(data.trim(), ofPattern(FORMATO_DT_PADRAO));
+    }
 }
